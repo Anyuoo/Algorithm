@@ -1,5 +1,6 @@
-package com.anyu;
+package com.anyu.sort;
 
+import com.anyu.sort.Sort;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
