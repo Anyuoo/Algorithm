@@ -5,6 +5,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.security.PublicKey;
+
 import static org.junit.Assert.*;
 
 public class SortTest {
@@ -37,6 +39,25 @@ public class SortTest {
     @Test
     public void quickSortTest() {
         assertArrayEquals(result, sort.quickSort());
+    }
+
+    @Test
+    public void mergeSortTest() {
+        assertArrayEquals(result, sort.mergeSort());
+    }
+
+    @Test
+    public void teee() {
+        int[] a = new int[]{1, 2, 3};
+        int[] b = new int[3];
+        int[] c = new int[3];
+        int i = 0;
+        int j = 0;
+        b[++j] = a[2];
+        c[i++] = a[2];
+        System.out.println(b[0] + "" + b[1] + "" + b[2]);
+        System.out.println(c[0] + "" + c[1] + "" + c[2]);
+
     }
 
     @After

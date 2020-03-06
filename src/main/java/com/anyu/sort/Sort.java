@@ -6,7 +6,8 @@ public class Sort {
     private int[] nums;
     private int length;
     public Sort(int[] nums){
-        this.nums=nums;
+        this.nums = nums;
+        this.length = nums.length;
     }
 
     /**
@@ -15,7 +16,6 @@ public class Sort {
     public int[] bubbleSort(){
         int times;
         boolean need=true;//判断后面数据是否需要排序
-        int length=nums.length;
         //每一次找的最小数，放最后，n个数就进行n-1次循环
         for (times=1; times< length; times++) {
             if (need == false)
@@ -35,7 +35,6 @@ public class Sort {
      * 2.选择排序，每次选择最大的依次放前面
      */
     public int[] selectionSort(){
-        int length=nums.length;
         int max_index;//最大值下标
         //tail 作为已排序的尾，可做排序次数
         for (int tail = 0; tail <length-1 ; tail++) {
@@ -54,7 +53,6 @@ public class Sort {
      * 3.插入排序,由大到小
      */
     public int[] insertionSort(){
-        int length=nums.length;
         int tem;
         //tail表示已排好序的尾部
         for ( int tail=0;tail<length-1;tail++){
@@ -74,7 +72,6 @@ public class Sort {
      * quick 定义基准pivot，并将大于基准的放到基准右边，小于放到左边
      */
     public int[] quickSort() {
-        int length = nums.length;
         int head = 0;
         int tail = length - 1;
         quickS(head, tail);
@@ -117,11 +114,46 @@ public class Sort {
         return pivot;
     }
 
+    /**
+     * 归并排序
+     *
+     * @return
+     */
     public int[] mergeSort() {
-
+        mergeS(0, length - 1);
         return nums;
     }
 
+    public void mergeS(int left, int right) {
+        if (left < right) {
+            int mid = (right + left) / 2;
+            mergeS(left, mid);
+            mergeS(mid + 1, right);
+            merge(left, mid, right);
+        }
+    }
+
+    public void merge(int left, int mid, int right) {
+        int[] tem = new int[length];
+        int pointer = left; //c存放指针
+        int P1 = left; //左游标指针
+        int P2 = mid + 1;//右游标指针
+        while (P1 <= mid && P2 <= right) {
+            if (nums[P1] > nums[P2]) {
+                tem[pointer++] = nums[P1++];
+            } else {
+                tem[pointer++] = nums[P2++];
+            }
+
+        }
+        while (P1 <= mid)
+            tem[pointer++] = nums[P1++];
+        while (P2 <= right)
+            tem[pointer++] = nums[P2++];
+        for (int i = left; i <= right; i++) {
+            nums[i] = tem[i];
+        }
+    }
 
     /**
      * 数组前后值交换
