@@ -21,14 +21,25 @@ public class SortTest {
     public void bubbleSort() {
        assertArrayEquals(result,sort.bubbleSort());
     }
+
     @Test
-    public void selectionSort(){
-        assertArrayEquals(result,sort.selectionSort());
-    }
-    @Test
-    public void insertionSort(){
-        assertArrayEquals(result,sort.insertionSort());
+    public void selectionSort() {
+        assertArrayEquals(result, sort.selectionSort());
+
     }
 
+    @Test
+    public void insertionSort() {
+        assertArrayEquals(result, sort.insertionSort());
+    }
 
+    @Test
+    public void quickSortTest() {
+        assertArrayEquals(result, sort.quickSort());
+    }
+
+    @After
+    public void afterTest() {
+        System.out.println(sort.toString());
+    }
 }
