@@ -127,17 +127,18 @@ public class Sort {
     public void mergeS(int left, int right) {
         if (left < right) {
             int mid = (right + left) / 2;
-            mergeS(left, mid);
-            mergeS(mid + 1, right);
-            merge(left, mid, right);
+            mergeS(left, mid);//递归分割左边
+            mergeS(mid + 1, right);//递归分割右边
+            merge(left, mid, right);//合并排序
         }
     }
 
     public void merge(int left, int mid, int right) {
-        int[] tem = new int[length];
-        int pointer = left; //c存放指针
+        int[] tem = new int[length];//存放排好的数组
+        int pointer = left; //存放指针
         int P1 = left; //左游标指针
         int P2 = mid + 1;//右游标指针
+        //左边有序和数组右边有序数组有未比较的情况下，相互比较排序
         while (P1 <= mid && P2 <= right) {
             if (nums[P1] > nums[P2]) {
                 tem[pointer++] = nums[P1++];
@@ -146,10 +147,13 @@ public class Sort {
             }
 
         }
+        //如果左边没有排完，将左边有序复制到暂存数组
         while (P1 <= mid)
             tem[pointer++] = nums[P1++];
+        //右边同上
         while (P2 <= right)
             tem[pointer++] = nums[P2++];
+//        将排好序的合并到原来数组
         for (int i = left; i <= right; i++) {
             nums[i] = tem[i];
         }
