@@ -42,6 +42,7 @@ public class Module {
 //            for (int j = 0; j < col; j++)
 //                nums[i][j] = Integer.valueOf(data[j]);
 //        }
+//        br.close();
 //        for (int i = 0; i <row ; i++) {
 //            for (int j = 0; j <col ; j++) {
 //                System.out.printf("%d\t",nums[i][j]);
