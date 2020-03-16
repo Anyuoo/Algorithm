@@ -1,7 +1,7 @@
 package com.anyu.leetcode;
 
 import java.util.Arrays;
-
+//给一个总额amount的面值，用硬币coins[]换，至少需要到少个，不满足返回-1
 public class CoinChange {
     public static int coinChange(int[] coins, int amount) {
         if (coins == null || coins.length < 1)
