@@ -1,4 +1,4 @@
-package com.anyu.leetcode;
+package com.anyu.leetcode.DP;
 
 import java.util.Arrays;
 //给一个总额amount的面值，用硬币coins[]换，至少需要到少个，不满足返回-1
